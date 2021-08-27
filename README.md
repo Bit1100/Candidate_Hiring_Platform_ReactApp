@@ -1,8 +1,8 @@
-## Candidate Hiring Platform React App
+# Candidate Hiring Platform React App
 
 This is the Candidate Hiring Platform where candidates details could be found and the company can view the candidates to hire them. This is the platform for both the candidates and the companies which binds together the job-seeking candidates and hiring companies.
 
-# Concepts Used while making the App
+## Concepts Used while making the App
 
 1. Proper Utilization of 3rd Party API data.
 
