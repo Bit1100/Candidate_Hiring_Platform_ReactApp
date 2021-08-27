@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+// Importing various functionalities from the modules
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import { useState, useEffect } from "react";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Selection from "./pages/Selection";
+import Students from "./pages/Students";
+import Candidate from "./pages/Candidate";
+import "./css/style.css";
+import { CandidateContextProvider } from "./CandidateContext";
+import { getCandidate, setCandidate } from "./Utils/storage";
 
-function App() {
+// Main Component of the App
+const App = () => {
+  // Initializing the state available for various sub-components
+  const [selected, setSelected] = useState({
+    individuals: {},
+    totalSelected: 0,
+  });
+
+  // Getting the data from localStorage on Page Refresh
+  useEffect(() => {
+    setSelected(getCandidate());
+  }, []);
+
+  // Storing the new data into the localStorage
+  useEffect(() => {
+    setCandidate(selected);
+  }, [selected]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        {/* Making state data available to various components via context api */}
+        <CandidateContextProvider value={{ selected, setSelected }}>
+          <Navbar />
+          <Switch>
+            <Route path="/" component={Home} exact></Route>
+            <Route path="/candidates" exact component={Students}></Route>
+            <Route path="/candidates/:id/:image" component={Candidate}></Route>
+            <Route path="/selection" component={Selection}></Route>
+            <Redirect to="/" />
+          </Switch>
+        </CandidateContextProvider>
+      </Router>
+    </>
   );
-}
+};
 
 export default App;
