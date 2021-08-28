@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import SingleCandidate from "./SingleCandidate";
-const imgGallery = [
-  "/images/suraj.jpg",
-  "/images/suraj2.jpg",
-  "/images/suraj3.jpg",
-  "/images/suraj4.jpg",
-  "/images/suraj5.jpg",
-  "/images/surajl.jpg",
-  "/images/smartsun.jpg",
-  "/images/currentSun.jpg",
-  "/images/happySun.jpg",
-  "/images/heavySun.jpg",
-];
+import s1 from "../img/s1.jpg";
+import s2 from "../img/s2.jpg";
+import s3 from "../img/s3.jpg";
+import s4 from "../img/s4.jpg";
+import s5 from "../img/s5.jpg";
+import s6 from "../img/s6.jpg";
+import s7 from "../img/s7.jpg";
+import s8 from "../img/s8.jpg";
+import s9 from "../img/s9.jpg";
+import s10 from "../img/s10.jpg";
+
+const imgGallery = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10];
 
 const Candidates = () => {
   const [individual, setIndividual] = useState([]);
