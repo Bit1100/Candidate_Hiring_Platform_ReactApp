@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Candidate_Hiring_Platform_ReactApp/static/css/main.34a4e4d5.chunk.css",
-    "main.js": "/Candidate_Hiring_Platform_ReactApp/static/js/main.f61cb607.chunk.js",
-    "main.js.map": "/Candidate_Hiring_Platform_ReactApp/static/js/main.f61cb607.chunk.js.map",
+    "main.js": "/Candidate_Hiring_Platform_ReactApp/static/js/main.f4de469c.chunk.js",
+    "main.js.map": "/Candidate_Hiring_Platform_ReactApp/static/js/main.f4de469c.chunk.js.map",
     "runtime-main.js": "/Candidate_Hiring_Platform_ReactApp/static/js/runtime-main.6e7c7258.js",
     "runtime-main.js.map": "/Candidate_Hiring_Platform_ReactApp/static/js/runtime-main.6e7c7258.js.map",
     "static/js/2.704c8367.chunk.js": "/Candidate_Hiring_Platform_ReactApp/static/js/2.704c8367.chunk.js",
@@ -11,12 +11,22 @@
     "static/css/main.34a4e4d5.chunk.css.map": "/Candidate_Hiring_Platform_ReactApp/static/css/main.34a4e4d5.chunk.css.map",
     "static/js/2.704c8367.chunk.js.LICENSE.txt": "/Candidate_Hiring_Platform_ReactApp/static/js/2.704c8367.chunk.js.LICENSE.txt",
     "static/media/Bit.2097ccb2.jpg": "/Candidate_Hiring_Platform_ReactApp/static/media/Bit.2097ccb2.jpg",
+    "static/media/s1.a1364427.jpg": "/Candidate_Hiring_Platform_ReactApp/static/media/s1.a1364427.jpg",
+    "static/media/s10.151360c6.jpg": "/Candidate_Hiring_Platform_ReactApp/static/media/s10.151360c6.jpg",
+    "static/media/s2.91e5d4d3.jpg": "/Candidate_Hiring_Platform_ReactApp/static/media/s2.91e5d4d3.jpg",
+    "static/media/s3.523973c0.jpg": "/Candidate_Hiring_Platform_ReactApp/static/media/s3.523973c0.jpg",
+    "static/media/s4.b0c18f12.jpg": "/Candidate_Hiring_Platform_ReactApp/static/media/s4.b0c18f12.jpg",
+    "static/media/s5.4403e508.jpg": "/Candidate_Hiring_Platform_ReactApp/static/media/s5.4403e508.jpg",
+    "static/media/s6.095e382c.jpg": "/Candidate_Hiring_Platform_ReactApp/static/media/s6.095e382c.jpg",
+    "static/media/s7.d7c23fc0.jpg": "/Candidate_Hiring_Platform_ReactApp/static/media/s7.d7c23fc0.jpg",
+    "static/media/s8.1542c9e7.jpg": "/Candidate_Hiring_Platform_ReactApp/static/media/s8.1542c9e7.jpg",
+    "static/media/s9.7e11567b.jpg": "/Candidate_Hiring_Platform_ReactApp/static/media/s9.7e11567b.jpg",
     "static/media/surajl.095e382c.jpg": "/Candidate_Hiring_Platform_ReactApp/static/media/surajl.095e382c.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.6e7c7258.js",
     "static/js/2.704c8367.chunk.js",
     "static/css/main.34a4e4d5.chunk.css",
-    "static/js/main.f61cb607.chunk.js"
+    "static/js/main.f4de469c.chunk.js"
   ]
 }
