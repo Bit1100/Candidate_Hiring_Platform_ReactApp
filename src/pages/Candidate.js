@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
+import { imgGallery } from "../components/Candidates";
 
 const Candidate = () => {
   const [candidate, setCandidate] = useState({});
+  const [image, setImage] = useState('');
 
   // Extracting the data from the url using useParams() method
-  const { id, image } = useParams();
+  const { id } = useParams();
   const history = useHistory();
 
   useEffect(() => {
@@ -21,6 +23,7 @@ const Candidate = () => {
       user["company"] = user.company.name;
 
       setCandidate(user);
+      setImage(`${imgGallery[id - 1]}`);
     })();
   }, [id]);
 
@@ -38,7 +41,7 @@ const Candidate = () => {
         </button>
         <div className="border-8 border-black w-11/12 lg:w-3/4 xl:w-max p-8 mt-16 bg-green-300 rounded-xl flex flex-wrap lg:flex-nowrap items-center justify-center container mx-auto ">
           <img
-            src={`/images/${image}`}
+            src={image}
             className="w-64 h-64 xl:w-96 xl:h-96 rounded-full mb-12"
             alt="Suraj Keshari"
           />

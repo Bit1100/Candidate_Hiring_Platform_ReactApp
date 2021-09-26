@@ -12,7 +12,7 @@ import s8 from "../img/s8.jpg";
 import s9 from "../img/s9.jpg";
 import s10 from "../img/s10.jpg";
 
-const imgGallery = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10];
+export const imgGallery = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10];
 
 const Candidates = () => {
   const [individual, setIndividual] = useState([]);
@@ -34,11 +34,7 @@ const Candidates = () => {
       <div className="container mx-auto my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center">
         {individual.map((singleCandidate, index) => {
           return (
-            <Link
-              to={`/candidates/${singleCandidate.id}/${imgGallery[index].slice(
-                8
-              )}`}
-            >
+            <Link to={`/candidates/${singleCandidate.id}`}>
               <SingleCandidate
                 key={singleCandidate.id}
                 candidate={singleCandidate}

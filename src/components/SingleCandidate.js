@@ -36,6 +36,7 @@ const SingleCandidate = (props) => {
     if (!btnStatus) {
       setBtnStatus(true);
     }
+
     // FInding and Removing the individual data on 2nd click from the localStorage
     else {
       setBtnStatus(false);

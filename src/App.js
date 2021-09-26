@@ -42,7 +42,7 @@ const App = () => {
           <Switch>
             <Route path="/" component={Home} exact></Route>
             <Route path="/candidates" exact component={Students}></Route>
-            <Route path="/candidates/:id/:image" component={Candidate}></Route>
+            <Route path="/candidates/:id" component={Candidate}></Route>
             <Route path="/selection" component={Selection}></Route>
             <Redirect to="/" />
           </Switch>
