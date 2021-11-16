@@ -13,3 +13,5 @@ This is the Candidate Hiring Platform where candidates details could be found an
 4. Clean and Re-factored Javascript Code with appropriate comments
 
 5. Utiliztion of TailwindCSS as the styling framework.
+
+6. It's nearly like candidate hiring platform such as intershala.
