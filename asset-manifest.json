@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Candidate_Hiring_Platform_ReactApp/static/css/main.34a4e4d5.chunk.css",
-    "main.js": "/Candidate_Hiring_Platform_ReactApp/static/js/main.9c32fa78.chunk.js",
-    "main.js.map": "/Candidate_Hiring_Platform_ReactApp/static/js/main.9c32fa78.chunk.js.map",
+    "main.css": "/Candidate_Hiring_Platform_ReactApp/static/css/main.fb770d0a.chunk.css",
+    "main.js": "/Candidate_Hiring_Platform_ReactApp/static/js/main.7f8a3830.chunk.js",
+    "main.js.map": "/Candidate_Hiring_Platform_ReactApp/static/js/main.7f8a3830.chunk.js.map",
     "runtime-main.js": "/Candidate_Hiring_Platform_ReactApp/static/js/runtime-main.6e7c7258.js",
     "runtime-main.js.map": "/Candidate_Hiring_Platform_ReactApp/static/js/runtime-main.6e7c7258.js.map",
     "static/js/2.a1353cc9.chunk.js": "/Candidate_Hiring_Platform_ReactApp/static/js/2.a1353cc9.chunk.js",
     "static/js/2.a1353cc9.chunk.js.map": "/Candidate_Hiring_Platform_ReactApp/static/js/2.a1353cc9.chunk.js.map",
     "index.html": "/Candidate_Hiring_Platform_ReactApp/index.html",
-    "static/css/main.34a4e4d5.chunk.css.map": "/Candidate_Hiring_Platform_ReactApp/static/css/main.34a4e4d5.chunk.css.map",
+    "static/css/main.fb770d0a.chunk.css.map": "/Candidate_Hiring_Platform_ReactApp/static/css/main.fb770d0a.chunk.css.map",
     "static/js/2.a1353cc9.chunk.js.LICENSE.txt": "/Candidate_Hiring_Platform_ReactApp/static/js/2.a1353cc9.chunk.js.LICENSE.txt",
     "static/media/Bit.2097ccb2.jpg": "/Candidate_Hiring_Platform_ReactApp/static/media/Bit.2097ccb2.jpg",
     "static/media/s1.a1364427.jpg": "/Candidate_Hiring_Platform_ReactApp/static/media/s1.a1364427.jpg",
@@ -26,7 +26,7 @@
   "entrypoints": [
     "static/js/runtime-main.6e7c7258.js",
     "static/js/2.a1353cc9.chunk.js",
-    "static/css/main.34a4e4d5.chunk.css",
-    "static/js/main.9c32fa78.chunk.js"
+    "static/css/main.fb770d0a.chunk.css",
+    "static/js/main.7f8a3830.chunk.js"
   ]
 }
