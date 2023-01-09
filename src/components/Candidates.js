@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCandidates } from "../redux/features/candidates/candidatesSlice";
+
 import SingleCandidate from "./SingleCandidate";
 import s1 from "../img/s1.jpg";
 import s2 from "../img/s2.jpg";
@@ -15,16 +18,13 @@ import s10 from "../img/s10.jpg";
 export const imgGallery = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10];
 
 const Candidates = () => {
-  const [individual, setIndividual] = useState([]);
+  const candidates = useSelector((state) => state.candidates.candidates);
+  const dispatch = useDispatch();
 
   // fetching data from the 3rd party API and populating DOM
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((users) => {
-        setIndividual(users);
-      });
-  }, []);
+    dispatch(fetchCandidates());
+  }, [dispatch]);
 
   return (
     <>
@@ -32,7 +32,7 @@ const Candidates = () => {
         Candidates
       </h3>
       <div className="container mx-auto my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center">
-        {individual.map((singleCandidate, index) => {
+        {candidates.map((singleCandidate, index) => {
           return (
             <Link to={`/candidates/${singleCandidate.id}`}>
               <SingleCandidate

@@ -1,31 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { imgGallery } from "../components/Candidates";
+import { fetchCandidateById } from "../redux/features/candidates/candidatesSlice";
 
 const Candidate = () => {
-  const [candidate, setCandidate] = useState({});
-  const [image, setImage] = useState('');
+  const candidate = useSelector((state) => state.candidates.candidate);
+  const dispatch = useDispatch();
 
   // Extracting the data from the url using useParams() method
   const { id } = useParams();
   const history = useHistory();
 
   useEffect(() => {
-    // Self-calling function to fetch data from 3rd party API
-    (async () => {
-      const response = await fetch(
-        `https://jsonplaceholder.typicode.com/users/${id}`
-      );
-
-      const user = await response.json();
-
-      user["address"] = user.address.city;
-      user["company"] = user.company.name;
-
-      setCandidate(user);
-      setImage(`${imgGallery[id - 1]}`);
-    })();
-  }, [id]);
+    dispatch(fetchCandidateById(id));
+  }, [id, dispatch]);
 
   // Method for going back to the previous page
   const goBackward = () => history.goBack();
@@ -41,7 +30,7 @@ const Candidate = () => {
         </button>
         <div className="border-8 border-black w-11/12 lg:w-3/4 xl:w-max p-8 mt-16 bg-green-300 rounded-xl flex flex-wrap lg:flex-nowrap items-center justify-center container mx-auto ">
           <img
-            src={image}
+            src={imgGallery[id - 1]}
             className="w-64 h-64 xl:w-96 xl:h-96 rounded-full mb-12"
             alt="Suraj Keshari"
           />

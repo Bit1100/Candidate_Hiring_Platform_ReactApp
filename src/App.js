@@ -7,10 +7,10 @@ import {
 } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import Selection from "./pages/Selection";
-import Students from "./pages/Students";
-import Candidate from "./pages/Candidate";
+import Home from "./pages/home";
+import Selection from "./pages/selection";
+import Students from "./pages/students";
+import Candidate from "./pages/candidate";
 import "./css/style.css";
 import { CandidateContextProvider } from "./CandidateContext";
 import { getCandidate, setCandidate } from "./Utils/storage";
