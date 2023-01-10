@@ -11,7 +11,7 @@ const initialState = {
   },
 };
 
-// Action Creator fetching single candidate and populating the selectedCandidates
+// Action Creator fetching single candidate at a time and populating the candidates under candidatesDetail object
 export const fetchSelectedCandidatesById = createAsyncThunk(
   "candidates/fetchSelectedCandidatesById",
   (id) => {
@@ -28,7 +28,6 @@ export const fetchSelectedCandidatesById = createAsyncThunk(
   }
 );
 
-// Handling the respnse of async action creators
 export const candidatesSlice = createSlice({
   name: "selectedCandidates",
   initialState,

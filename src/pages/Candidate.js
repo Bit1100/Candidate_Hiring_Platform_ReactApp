@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { imgGallery } from "../components/Candidates";
-import { fetchCandidateById } from "../redux/features/candidates/candidatesSlice";
+import { fetchCandidateById } from "../redux/";
 
 const Candidate = () => {
   const candidate = useSelector((state) => state.candidates.candidate);
@@ -37,9 +37,9 @@ const Candidate = () => {
           <div className="ml-8 lg:ml-16 text-2xl ">
             <div className="font-bold">Name - {candidate.name}</div>
             <div className="hover:underline">E-mail - {candidate.email}</div>
-            <div className="">Phone - {candidate.phone}</div>
-            <div className="">Address - {candidate.address} City</div>
-            <div className="">Company - {candidate.company} Pvt. Limited</div>
+            <div>Phone - {candidate.phone}</div>
+            <div>Address - {candidate.address} City</div>
+            <div>Company - {candidate.company} Pvt. Limited</div>
             <div className="hover:underline">Website - {candidate.website}</div>
           </div>
         </div>

@@ -12,9 +12,9 @@ import Selection from "./pages/selection";
 import Candidates from "./pages/candidates";
 import Candidate from "./pages/candidate";
 import "./css/style.css";
-import { getCandidate, setCandidate } from "./Utils/storage";
+import { getCandidate, setCandidate } from "./Utils/";
 import { useDispatch } from "react-redux";
-import { savedCandidates } from "./redux/features/candidates/selectedCandidatesSlice";
+import { savedCandidates } from "./redux/";
 
 // Main Component of the App
 const App = () => {
@@ -27,7 +27,7 @@ const App = () => {
   // Getting the data from localStorage on Page Refresh
   useEffect(() => {
     dispatch(savedCandidates(getCandidate()));
-  }, []);
+  }, [dispatch]);
 
   // Storing the new data into the localStorage
   useEffect(() => {
@@ -37,7 +37,6 @@ const App = () => {
   return (
     <>
       <Router>
-        {/* Making state data available to various components via context api */}
         <Navbar />
         <Switch>
           <Route path="/" component={Home} exact></Route>

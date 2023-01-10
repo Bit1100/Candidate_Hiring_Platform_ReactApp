@@ -1,9 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectCandidate,
-  fetchSelectedCandidatesById,
-} from "../redux/features/candidates/selectedCandidatesSlice";
+import { selectCandidate, fetchSelectedCandidatesById } from "../redux/";
 
 const SingleCandidate = (props) => {
   // Exrracting the props data

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCandidates } from "../redux/features/candidates/candidatesSlice";
+import { fetchCandidates } from "../redux/";
 
 import SingleCandidate from "./SingleCandidate";
 import s1 from "../img/s1.jpg";

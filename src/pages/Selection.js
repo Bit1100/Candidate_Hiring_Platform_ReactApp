@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "../components/Footer";
-import { deleteCandidate } from "../redux/features/candidates/selectedCandidatesSlice";
+import { deleteCandidate } from "../redux/";
 
 const Selection = () => {
   const dispatch = useDispatch();
