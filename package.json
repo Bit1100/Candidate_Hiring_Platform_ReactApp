@@ -2,6 +2,7 @@
   "name": "react_api_app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://bit1100.github.io/internshala-react-app",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
     "@testing-library/jest-dom": "^5.14.1",
@@ -9,6 +10,7 @@
     "@testing-library/user-event": "^12.8.3",
     "autoprefixer": "^10.4.0",
     "axios": "^1.2.2",
+    "gh-pages": "^4.0.0",
     "postcss": "^8.3.11",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -22,7 +24,9 @@
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts --openssl-legacy-provider test",
-    "eject": "react-scripts --openssl-legacy-provider eject"
+    "eject": "react-scripts --openssl-legacy-provider eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
