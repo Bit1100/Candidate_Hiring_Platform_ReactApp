@@ -1,66 +1,22 @@
 import React from "react";
-import { useState, useContext } from "react";
-import { CandidateContext } from "../CandidateContext";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectCandidate,
+  fetchSelectedCandidatesById,
+} from "../redux/features/candidates/selectedCandidatesSlice";
 
 const SingleCandidate = (props) => {
   // Exrracting the props data
   const { candidate, image } = props;
   const { id, name, email, website } = candidate;
-  const [btnStatus, setBtnStatus] = useState(false);
-
-  const { selected, setSelected } = useContext(CandidateContext);
-
-  // adding users id to context state object so that it can be fetched even after the page refreshes
-  const selectCandidate = (e, id) => {
-    // Preventing from opening the specific user details and only focused on button
-    e.preventDefault();
-
-    // Cloning the actual data
-    let _selected = { ...selected };
-
-    // Initializing individaul with empty array
-    !_selected.individuals.individual &&
-      (_selected.individuals.individual = []);
-
-    // Creating the local object
-    let candidObject = {};
-    !candidObject["id"] && (candidObject["id"] = id);
-
-    // Pushing the candid object only if it doesn't exist previously
-    if (!_selected.individuals.individual.some((e) => e["id"] === id)) {
-      _selected.individuals.individual.push(candidObject);
-
-      _selected.totalSelected += 1;
-    }
-
-    if (!btnStatus) {
-      setBtnStatus(true);
-    }
-
-    // FInding and Removing the individual data on 2nd click from the localStorage
-    else {
-      setBtnStatus(false);
-      const index = _selected.individuals.individual.findIndex(
-        (obj) => obj["id"] === id
-      );
-      _selected.individuals.individual.splice(index, 1);
-      _selected.totalSelected -= 1;
-      _selected.totalSelected < 0 && (_selected.totalSelected = 0);
-      setSelected(_selected);
-      return;
-    }
-
-    setSelected(_selected);
-  };
+  const dispatch = useDispatch();
+  const candidates = useSelector(
+    (state) => state.selectedCandidates.candidates
+  );
 
   // checks whether the individuals is empty or not in localStorage
   const isSelected = () => {
-    return (selected.individuals &&
-      Object.keys(selected.individuals).length === 0 &&
-      selected.individuals.constructor === Object) ||
-      selected.individuals.individual.length === 0
-      ? ""
-      : 1;
+    return candidates.length === 0 ? "" : 1;
   };
 
   return (
@@ -89,15 +45,19 @@ const SingleCandidate = (props) => {
           {website}
         </a>
         <button
-          onClick={(e) => selectCandidate(e, id)}
+          onClick={(e) => {
+            e.preventDefault();
+            dispatch(selectCandidate(id));
+            dispatch(fetchSelectedCandidatesById(id));
+          }}
           className={
             // if no candidate is present then normal className will be assigned but if present then based on the match className will be assigned
             !isSelected()
               ? "bg-yellow-400 border-2 border-black px-1 rounded-md text-xl"
-              : selected.individuals.individual.map((item) => {
+              : candidates.map((item) => {
                   return item["id"] === id
-                    ? "bg-blue-400 text-white font-bold border-2 border-black px-1 rounded-md text-xl after:content-['ed] after:block text-2xl"
-                    : "bg-blue-400 border-2 border-black px-1 rounded-md text-2xl";
+                    ? "bg-blue-400 text-white font-bold border-2 border-white px-1 rounded-md text-xl after:content-['ed] after:block text-2xl"
+                    : "bg-blue-400 border-1 border-2 black px-2 border-black rounded-md text-xl";
                 })
           }
         >

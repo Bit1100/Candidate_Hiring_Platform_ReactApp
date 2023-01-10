@@ -46,12 +46,12 @@ export const candidatesSlice = createSlice({
     builder.addCase(fetchCandidates.fulfilled, (state, action) => {
       state.loading = false;
       state.candidates = action.payload;
-      state.loading = "";
+      state.error = "";
     });
     builder.addCase(fetchCandidates.rejected, (state, action) => {
       state.loading = false;
       state.candidates = [];
-      state.loading = action.payload;
+      state.error = action.payload.message;
     });
     builder.addCase(fetchCandidateById.pending, (state) => {
       state.loading = true;
@@ -59,12 +59,12 @@ export const candidatesSlice = createSlice({
     builder.addCase(fetchCandidateById.fulfilled, (state, action) => {
       state.loading = false;
       state.candidate = action.payload;
-      state.loading = "";
+      state.error = "";
     });
     builder.addCase(fetchCandidateById.rejected, (state, action) => {
       state.loading = false;
       state.candidate = {};
-      state.loading = action.payload;
+      state.error = action.payload.message;
     });
   },
 });

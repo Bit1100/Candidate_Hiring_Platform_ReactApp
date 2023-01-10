@@ -1,11 +1,11 @@
-import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import bitLogo from "../img/Bit.jpg";
-import { CandidateContext } from "../CandidateContext";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  // Extracting the data from the context api
-  const { selected } = useContext(CandidateContext);
+  const totalSelected = useSelector(
+    (state) => state.selectedCandidates.totalSelected
+  );
   return (
     <div className="p-2 bg-black text-white flex flex-center justify-between flex-wrap">
       <Link to="/">
@@ -24,7 +24,7 @@ const Navbar = () => {
           <NavLink to="/selection">
             Selected -
             <span className="mx-2 bg-yellow-400 text-black rounded-full font-bold p-1">
-              {selected.totalSelected}
+              {totalSelected}
             </span>
           </NavLink>
         </li>
