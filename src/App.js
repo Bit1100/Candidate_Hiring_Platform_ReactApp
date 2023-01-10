@@ -36,7 +36,13 @@ const App = () => {
 
   return (
     <>
-      <Router>
+      <Router
+        basename={
+          process.env.REACT_APP_STAGE === "production"
+            ? process.env.PUBLIC_URL
+            : ""
+        }
+      >
         <Navbar />
         <Switch>
           <Route path="/" component={Home} exact></Route>

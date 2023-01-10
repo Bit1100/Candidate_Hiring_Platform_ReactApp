@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^12.8.3",
     "autoprefixer": "^10.4.0",
     "axios": "^1.2.2",
+    "env-cmd": "^10.1.0",
     "gh-pages": "^4.0.0",
     "postcss": "^8.3.11",
     "react": "^17.0.2",
@@ -21,8 +22,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts --openssl-legacy-provider build",
+    "start": "env-cmd -f .env.development react-scripts --openssl-legacy-provider start",
+    "build": "env-cmd -f .env.production react-scripts --openssl-legacy-provider build",
     "test": "react-scripts --openssl-legacy-provider test",
     "eject": "react-scripts --openssl-legacy-provider eject",
     "predeploy": "npm run build",
