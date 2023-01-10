@@ -22,7 +22,7 @@ const Selection = () => {
                 key={id}
                 className="w-full lg:w-3/4 mx-auto bg-yellow-200 m-8 rounded-xl p-2 flex flex-wrap text-xl justify-center items-center md:justify-between md:items-center"
               >
-                <div className="text-black rounded-xl p-1 m-2">{index + 1}</div>
+                <div className="text-black rounded-xl p-1 m-2">{id}</div>
                 <span className="text-black rounded-xl p-1 m-2">{name}</span>
                 <a
                   href={`mailto:${email}`}

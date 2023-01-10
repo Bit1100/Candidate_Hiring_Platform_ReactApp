@@ -33,6 +33,15 @@ export const candidatesSlice = createSlice({
   name: "selectedCandidates",
   initialState,
   reducers: {
+    savedCandidates: (state, action) => {
+      let count = 0;
+      action.payload?.forEach((item) => {
+        state.candidatesDetail.candidates.push(item);
+        state.candidates.push({ id: item.id });
+        count++;
+      });
+      state.totalSelected = count;
+    },
     selectCandidate: (state, action) => {
       const id = action.payload;
       const candidate = {
@@ -73,5 +82,6 @@ export const candidatesSlice = createSlice({
   },
 });
 
-export const { selectCandidate, deleteCandidate } = candidatesSlice.actions;
+export const { savedCandidates, selectCandidate, deleteCandidate } =
+  candidatesSlice.actions;
 export default candidatesSlice.reducer;

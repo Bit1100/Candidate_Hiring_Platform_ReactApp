@@ -18,7 +18,7 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li className="text-lg md:text-2xl md:mx-2 p-1 hover:bg-yellow-600 rounded-md">
-          <NavLink to="/candidates">Students</NavLink>
+          <NavLink to="/candidates">Candidates</NavLink>
         </li>
         <li className="text-lg md:text-2xl md:mx-2 p-1 hover:bg-yellow-600 rounded-md">
           <NavLink to="/selection">
