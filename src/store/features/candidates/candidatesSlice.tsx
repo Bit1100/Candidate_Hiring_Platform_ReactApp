@@ -1,17 +1,22 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
+import {
+  candidatesState,
+  candidateState,
+  candidatesDetailState,
+} from "../../../types";
 
-const initialState = {
-  loading: "",
+const initialState: candidatesState = {
+  loading: false,
   candidates: [],
   error: "",
-  candidate: {},
+  candidate: Object.create({}),
 };
 
 // Action Creator fetching single candidate
 export const fetchCandidateById = createAsyncThunk(
   "candidates/fetchCandidateById",
-  (id) => {
+  (id: number) => {
     return axios
       .get(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then((response) => {
@@ -39,32 +44,39 @@ export const fetchCandidates = createAsyncThunk(
 export const candidatesSlice = createSlice({
   name: "candidates",
   initialState,
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchCandidates.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(fetchCandidates.fulfilled, (state, action) => {
-      state.loading = false;
-      state.candidates = action.payload;
-      state.error = "";
-    });
+    builder.addCase(
+      fetchCandidates.fulfilled,
+      (state, action: PayloadAction<candidateState[]>) => {
+        state.loading = false;
+        state.candidates = action.payload;
+        state.error = "";
+      }
+    );
     builder.addCase(fetchCandidates.rejected, (state, action) => {
       state.loading = false;
       state.candidates = [];
-      state.error = action.payload.message;
+      state.error = action.error.message || "Something Went Wrong";
     });
     builder.addCase(fetchCandidateById.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(fetchCandidateById.fulfilled, (state, action) => {
-      state.loading = false;
-      state.candidate = action.payload;
-      state.error = "";
-    });
+    builder.addCase(
+      fetchCandidateById.fulfilled,
+      (state, action: PayloadAction<candidatesDetailState>) => {
+        state.loading = false;
+        state.candidate = action.payload;
+        state.error = "";
+      }
+    );
     builder.addCase(fetchCandidateById.rejected, (state, action) => {
       state.loading = false;
-      state.candidate = {};
-      state.error = action.payload.message;
+      state.candidate = Object.create({});
+      state.error = action.error.message || "Something Went Wrong";
     });
   },
 });

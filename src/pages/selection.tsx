@@ -1,10 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
 import Footer from "../components/Footer";
-import { deleteCandidate } from "../redux/";
+import { deleteCandidate } from "../store";
 
 const Selection = () => {
-  const dispatch = useDispatch();
-  const selectedCandidates = useSelector(
+  const dispatch = useAppDispatch();
+  const selectedCandidates = useAppSelector(
     (state) => state.selectedCandidates.candidatesDetail.candidates
   );
 
@@ -30,14 +30,14 @@ const Selection = () => {
                 >
                   {email}
                 </a>
-                <axl
+                <a
                   href={`http://${website}`}
                   target="_blank"
                   rel="noreferrer"
                   className="hover:underline text-black rounded-xl p-1 m-2"
                 >
                   {website}
-                </axl>
+                </a>
                 <button
                   className="text-black rounded-xl p-1 m-2 text-xl px-4 bg-red-400 text-white"
                   onClick={(e) => {

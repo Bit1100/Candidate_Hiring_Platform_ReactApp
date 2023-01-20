@@ -1,5 +1,4 @@
-import React from "react";
-import suraj from "../img/surajl.jpg";
+import suraj from "../assets/images/surajl.jpg";
 
 const About = () => {
   return (

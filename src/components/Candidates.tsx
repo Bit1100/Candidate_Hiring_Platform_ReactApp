@@ -1,25 +1,25 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchCandidates } from "../redux/";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { fetchCandidates } from "../store";
 
 import SingleCandidate from "./SingleCandidate";
-import s1 from "../img/s1.jpg";
-import s2 from "../img/s2.jpg";
-import s3 from "../img/s3.jpg";
-import s4 from "../img/s4.jpg";
-import s5 from "../img/s5.jpg";
-import s6 from "../img/s6.jpg";
-import s7 from "../img/s7.jpg";
-import s8 from "../img/s8.jpg";
-import s9 from "../img/s9.jpg";
-import s10 from "../img/s10.jpg";
+import s1 from "../assets/images/s1.jpg";
+import s2 from "../assets/images/s2.jpg";
+import s3 from "../assets/images/s3.jpg";
+import s4 from "../assets/images/s4.jpg";
+import s5 from "../assets/images/s5.jpg";
+import s6 from "../assets/images/s6.jpg";
+import s7 from "../assets/images/s7.jpg";
+import s8 from "../assets/images/s8.jpg";
+import s9 from "../assets/images/s9.jpg";
+import s10 from "../assets/images/s10.jpg";
 
 export const imgGallery = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10];
 
 const Candidates = () => {
-  const candidates = useSelector((state) => state.candidates.candidates);
-  const dispatch = useDispatch();
+  const candidates = useAppSelector((state) => state.candidates.candidates);
+  const dispatch = useAppDispatch();
 
   // fetching data from the 3rd party API and populating DOM
   useEffect(() => {

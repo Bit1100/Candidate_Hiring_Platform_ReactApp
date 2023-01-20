@@ -1,13 +1,11 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { selectCandidate, fetchSelectedCandidatesById } from "../redux/";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { selectCandidate, fetchSelectedCandidatesById } from "../store";
+import { singleCandidate } from "../types";
 
-const SingleCandidate = (props) => {
-  // Exrracting the props data
-  const { candidate, image } = props;
+const SingleCandidate = ({ candidate, image }: singleCandidate) => {
   const { id, name, email, website } = candidate;
-  const dispatch = useDispatch();
-  const candidates = useSelector(
+  const dispatch = useAppDispatch();
+  const candidates = useAppSelector(
     (state) => state.selectedCandidates.candidates
   );
 
@@ -51,11 +49,13 @@ const SingleCandidate = (props) => {
             // if no candidate is present then normal className will be assigned but if present then based on the match className will be assigned
             !isSelected()
               ? "bg-yellow-400 border-2 border-black px-1 rounded-md text-xl"
-              : candidates.map((item) => {
-                  return item["id"] === id
-                    ? "bg-blue-400 text-white font-bold border-2 border-white px-1 rounded-md text-xl after:content-['ed] after:block text-2xl"
-                    : "bg-blue-400 border-1 border-2 black px-2 border-black rounded-md text-xl";
-                })
+              : candidates
+                  .map((item) => {
+                    return item["id"] === id
+                      ? "bg-blue-400 text-white font-bold border-2 border-white px-1 rounded-md text-xl text-2xl"
+                      : "bg-blue-400 border-1 border-2 black px-2 border-black rounded-md text-xl";
+                  })
+                  ?.toString()
           }
         >
           Select
