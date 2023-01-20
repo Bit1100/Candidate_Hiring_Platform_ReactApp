@@ -1,9 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
-import bitLogo from "../img/Bit.jpg";
-import { useSelector } from "react-redux";
+import bitLogo from "../assets/images/Bit.jpg";
+import { useAppSelector } from "../store/hooks";
 
 const Navbar = () => {
-  const totalSelected = useSelector(
+  const totalSelected = useAppSelector(
     (state) => state.selectedCandidates.totalSelected
   );
   return (

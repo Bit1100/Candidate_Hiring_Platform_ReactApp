@@ -1,5 +1,5 @@
 // Store Export
-export { store } from "./store/";
+export { store } from "./store";
 
 // Action Creators from candiddates Slice Export
 export {
