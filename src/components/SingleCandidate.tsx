@@ -8,11 +8,14 @@ import {
 import { singleCandidate } from "../types";
 
 const SingleCandidate = ({ candidate, image }: singleCandidate) => {
-  const [hasSelected, setHasSelected] = useState(false);
   const { id, name, email, website } = candidate;
   const dispatch = useAppDispatch();
   const candidates = useAppSelector(
     (state) => state.selectedCandidates.candidates
+  );
+  // Set initial state from store
+  const [hasSelected, setHasSelected] = useState(() =>
+    candidates.some((candidate) => candidate["id"] === id)
   );
 
   // Assist to Select/Deselect Candidate
@@ -20,11 +23,11 @@ const SingleCandidate = ({ candidate, image }: singleCandidate) => {
     e.preventDefault();
     if (hasSelected) {
       dispatch(deleteCandidate(id));
-      setHasSelected(false);
+      setHasSelected((prevState) => !prevState);
     } else {
-      setHasSelected(true);
       dispatch(selectCandidate(id));
       dispatch(fetchSelectedCandidatesById(id));
+      setHasSelected((prevState) => !prevState);
     }
   };
 
