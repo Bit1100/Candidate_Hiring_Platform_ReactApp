@@ -1,17 +1,31 @@
+import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { selectCandidate, fetchSelectedCandidatesById } from "../store";
+import {
+  selectCandidate,
+  fetchSelectedCandidatesById,
+  deleteCandidate,
+} from "../store";
 import { singleCandidate } from "../types";
 
 const SingleCandidate = ({ candidate, image }: singleCandidate) => {
+  const [hasSelected, setHasSelected] = useState(false);
   const { id, name, email, website } = candidate;
   const dispatch = useAppDispatch();
   const candidates = useAppSelector(
     (state) => state.selectedCandidates.candidates
   );
 
-  // checks whether the individuals is empty or not in localStorage
-  const isSelected = () => {
-    return candidates.length === 0 ? "" : 1;
+  // Assist to Select/Deselect Candidate
+  const selectCandidateFn = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (hasSelected) {
+      dispatch(deleteCandidate(id));
+      setHasSelected(false);
+    } else {
+      setHasSelected(true);
+      dispatch(selectCandidate(id));
+      dispatch(fetchSelectedCandidatesById(id));
+    }
   };
 
   return (
@@ -40,25 +54,15 @@ const SingleCandidate = ({ candidate, image }: singleCandidate) => {
           {website}
         </a>
         <button
-          onClick={(e) => {
-            e.preventDefault();
-            dispatch(selectCandidate(id));
-            dispatch(fetchSelectedCandidatesById(id));
-          }}
+          onClick={selectCandidateFn}
           className={
-            // if no candidate is present then normal className will be assigned but if present then based on the match className will be assigned
-            !isSelected()
-              ? "bg-yellow-400 border-2 border-black px-1 rounded-md text-xl"
-              : candidates
-                  .map((item) => {
-                    return item["id"] === id
-                      ? "bg-blue-400 text-white font-bold border-2 border-white px-1 rounded-md text-xl text-2xl"
-                      : "bg-blue-400 border-1 border-2 black px-2 border-black rounded-md text-xl";
-                  })
-                  ?.toString()
+            hasSelected
+              ? "bg-blue-600 text-white font-bold border-2 border-white px-1 rounded-md text-xl text-2xl"
+              : `bg-yellow-400 border-2 border-black px-1 rounded-md text-xl`
           }
         >
           Select
+          {hasSelected ? "ed" : ""}
         </button>
       </div>
     </div>
