@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/internshala-react-app/static/css/main.5df765ee.chunk.css",
-    "main.js": "/internshala-react-app/static/js/main.dc017aa5.chunk.js",
-    "main.js.map": "/internshala-react-app/static/js/main.dc017aa5.chunk.js.map",
+    "main.js": "/internshala-react-app/static/js/main.ee8eef06.chunk.js",
+    "main.js.map": "/internshala-react-app/static/js/main.ee8eef06.chunk.js.map",
     "runtime-main.js": "/internshala-react-app/static/js/runtime-main.986a5904.js",
     "runtime-main.js.map": "/internshala-react-app/static/js/runtime-main.986a5904.js.map",
     "static/js/2.aff15d6d.chunk.js": "/internshala-react-app/static/js/2.aff15d6d.chunk.js",
@@ -27,6 +27,6 @@
     "static/js/runtime-main.986a5904.js",
     "static/js/2.aff15d6d.chunk.js",
     "static/css/main.5df765ee.chunk.css",
-    "static/js/main.dc017aa5.chunk.js"
+    "static/js/main.ee8eef06.chunk.js"
   ]
 }
