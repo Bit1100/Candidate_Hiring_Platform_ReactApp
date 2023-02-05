@@ -15,7 +15,6 @@ import "./assets/styles/style.css";
 import { getCandidate, setCandidate } from "./utils";
 import { savedCandidates } from "./store";
 
-// Main Component of the App
 const App = () => {
   const dispatch = useAppDispatch();
 
